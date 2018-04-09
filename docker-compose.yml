@@ -1,0 +1,24 @@
+version: '2'
+services:
+  api:
+    build: .
+    image: m1001/gobooks:1.0
+    working_dir: /go/src/github.com/mblhaunted/gobooks
+    command: go run main.go
+    volumes:
+      - "./:/go/src/github.com/mblhaunted/gobooks"
+    links:
+      - postgres
+    environment:
+      POSTGRES_URL: postgres
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:9.6-alpine
+    ports: 
+      - "5432"
+    environment:
+      POSTGRES_DB: "gobooks"
+      POSTGRES_USER: "foo"
+      POSTGRES_PASSWORD: "bar"

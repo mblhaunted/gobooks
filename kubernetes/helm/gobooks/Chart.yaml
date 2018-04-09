@@ -1,0 +1,7 @@
+name: gobooks
+description: A generated Helm Chart for gobooks from Skippbox Kompose
+version: 0.0.1
+keywords:
+  - gobooks
+sources:
+home:
